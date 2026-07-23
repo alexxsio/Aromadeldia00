@@ -1,0 +1,1094 @@
+[cite: 3]<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AROMA DEL DÍA | Café hoy, mañana y pasado mañana</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-gold: #C89F81;
+      --brand-dark: #2C1E1A;
+      --brand-border: #8D5B4C;
+      --brand-text: #2C1E1A;
+      --brand-pastel-brown: #C89F81;
+      --brand-pastel-light: #EFE3DA;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      /* Fondo de cafetería acogedora */
+      background: 
+        linear-gradient(to bottom, rgba(255, 244, 239, 0.85), rgba(255, 244, 239, 0.95)),
+        url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1920') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+      color: var(--brand-text);
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(0.5deg); }
+    }
+
+    @keyframes aromaMovement {
+      0% { transform: scale(1) translateY(0); filter: drop-shadow(0 2px 4px rgba(200, 159, 129, 0.5)); }
+      25% { transform: scale(1.03) translateY(-3px) rotate(-0.5deg); filter: drop-shadow(0 6px 10px rgba(200, 159, 129, 0.6)); }
+      50% { transform: scale(1.05) translateY(-5px) rotate(0deg); filter: drop-shadow(0 10px 15px rgba(200, 159, 129, 0.7)); }
+      75% { transform: scale(1.03) translateY(-3px) rotate(0.5deg); filter: drop-shadow(0 6px 10px rgba(200, 159, 129, 0.6)); }
+      100% { transform: scale(1) translateY(0); filter: drop-shadow(0 2px 4px rgba(200, 159, 129, 0.5)); }
+    }
+
+    @keyframes superGlowPulse {
+      0% { box-shadow: 0 0 5px #C89F81, 0 0 10px #C89F81, 4px 4px 0px #2C1E1A; transform: scale(1); }
+      50% { box-shadow: 0 0 15px #C89F81, 0 0 25px #C89F81, 7px 7px 0px #2C1E1A; transform: scale(1.04) translateY(-2px); }
+      100% { box-shadow: 0 0 5px #C89F81, 0 0 10px #C89F81, 4px 4px 0px #2C1E1A; transform: scale(1); }
+    }
+
+    .aroma-fixed-animation {
+      display: inline-block;
+      animation: aromaMovement 3s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .floating-card {
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+
+    .bubble-section {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 239, 233, 0.95) 100%) !important;
+      backdrop-filter: blur(16px);
+      border: 4px solid #2C1E1A;
+      border-radius: 30px !important;
+      box-shadow: 8px 8px 0px #2C1E1A;
+      margin: 3.5rem auto;
+      padding: 3.5rem 2.5rem;
+      max-width: 80rem;
+      transition: all 0.3s ease;
+    }
+    .bubble-section:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 12px 12px 0px #C89F81;
+    }
+
+    .premium-card {
+      background: #FFFFFF !important;
+      border: 3px solid #2C1E1A;
+      border-radius: 20px !important;
+      box-shadow: 5px 5px 0px #2C1E1A;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    .premium-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 8px 8px 0px #C89F81;
+    }
+
+    .btn-vibrant-primary {
+      background: linear-gradient(135deg, #C89F81 0%, #A47551 100%) !important;
+      color: #FFFFFF !important;
+      font-weight: 800;
+      border: 3px solid #2C1E1A;
+      border-radius: 14px !important;
+      box-shadow: 4px 4px 0px #2C1E1A;
+      transition: all 0.2s ease;
+    }
+    .btn-vibrant-primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #2C1E1A;
+    }
+
+    .btn-vibrant-outline {
+      background-color: #FFFFFF !important;
+      color: #8D5B4C !important;
+      border: 3px solid #2C1E1A;
+      font-weight: 700;
+      border-radius: 14px !important;
+      box-shadow: 4px 4px 0px #2C1E1A;
+      transition: all 0.2s ease;
+    }
+    .btn-vibrant-outline:hover {
+      background-color: #C89F81;
+      color: white;
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #2C1E1A;
+    }
+
+    .polaroid {
+      background: #FFFFFF !important;
+      padding: 12px 12px 28px 12px;
+      border: 3px solid #2C1E1A;
+      box-shadow: 6px 6px 0px #2C1E1A;
+      border-radius: 10px !important;
+      transition: transform 0.4s ease;
+    }
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.05) !important;
+    }
+
+    @keyframes menuSlideBounce {
+      0% { opacity: 0; transform: perspective(600px) rotateX(25deg) translateY(-40px) scale(0.9); }
+      100% { opacity: 1; transform: perspective(600px) rotateX(0deg) translateY(0) scale(1); }
+    }
+
+    @keyframes menuZoomRotate {
+      0% { opacity: 0; transform: rotate(-5deg) scale(0.85) translateY(30px); }
+      100% { opacity: 1; transform: rotate(0deg) scale(1) translateY(0); }
+    }
+
+    @keyframes menuFlipIn {
+      0% { opacity: 0; transform: rotateY(90deg) scale(0.9); }
+      100% { opacity: 1; transform: rotateY(0deg) scale(1); }
+    }
+
+    @keyframes menuElasticPop {
+      0% { opacity: 0; transform: scale(0.5) translateY(50px); }
+      70% { transform: scale(1.05) translateY(-10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .menu-slider-content {
+      display: none;
+    }
+    
+    .menu-slider-content.active#content-desayuno { display: grid; animation: menuSlideBounce 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+    .menu-slider-content.active#content-almuerzo { display: grid; animation: menuZoomRotate 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+    .menu-slider-content.active#content-alimentos { display: grid; animation: menuFlipIn 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+    .menu-slider-content.active#content-reposteria { display: grid; animation: menuElasticPop 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+    .menu-slider-content.active#content-calientes { display: grid; animation: menuZoomRotate 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+    .menu-slider-content.active#content-frias { display: grid; animation: menuSlideBounce 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+    .tab-btn.active-tab {
+      background: linear-gradient(135deg, #C89F81 0%, #A47551 100%) !important;
+      color: #FFFFFF !important;
+      border: 3px solid #2C1E1A !important;
+      animation: superGlowPulse 1.5s infinite ease-in-out;
+      transform: scale(1.08) translateY(-4px);
+      z-index: 10;
+    }
+
+    #pacman-canvas {
+      background: #1C120F;
+      border: 4px solid #2C1E1A;
+      border-radius: 16px;
+      box-shadow: inset 0 0 20px rgba(200,159,129,0.2);
+    }
+
+    #welcome-screen {
+      position: fixed;
+      inset: 0;
+      /* Fondo actualizado con granos de café y capa oscura semitransparente */
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1920') no-repeat center center;
+      background-size: cover;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    #welcome-screen.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .mega-nav-link {
+      position: relative;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      color: #2C1E1A;
+      padding: 0.5rem 1rem;
+      border-radius: 14px;
+      background: #FFFFFF;
+      border: 2px solid #2C1E1A;
+      transition: all 0.2s ease;
+      box-shadow: 3px 3px 0px #2C1E1A;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .mega-nav-link:hover {
+      background: #C89F81;
+      color: #FFFFFF;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px #2C1E1A;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative">
+
+  <!-- PANTALLA DE BIENVENIDA -->
+  <div id="welcome-screen">
+    <div class="bg-white p-10 max-w-md mx-4 text-center space-y-6 shadow-2xl rounded-[30px] border-4 border-[#2C1E1A] floating-card" style="box-shadow: 10px 10px 0px #8D5B4C;" data-aos="zoom-in">
+      <div class="w-20 h-20 bg-[#C89F81] rounded-full border-3 border-[#2C1E1A] flex items-center justify-center mx-auto shadow-lg text-4xl animate-bounce" style="box-shadow: 4px 4px 0px #2C1E1A;">
+        ☕
+      </div>
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-wider text-[#8D5B4C]"><span class="aroma-fixed-animation">AROMA DEL DÍA</span></h1>
+        <p class="text-xs font-bold uppercase tracking-widest text-[#A47551] mt-1">CAFE A VECES</p>
+      </div>
+      <p class="text-xs text-[#2C1E1A] leading-relaxed font-bold">CAFE, COFFEE & KAFFEE.</p>
+      <button id="enter-btn" class="w-full py-4 px-6 btn-vibrant-primary text-xs uppercase tracking-wider">
+        BIENVENIDO, ESTÁ ABIERTO!
+      </button>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN FIJA SUPERIOR -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b-4 border-[#2C1E1A] shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-4 h-4 bg-[#C89F81] rounded-full border-2 border-[#2C1E1A] animate-ping"></span>
+        <span class="font-extrabold text-base tracking-widest text-[#8D5B4C] uppercase aroma-fixed-animation">AROMA DEL DÍA</span>
+      </div>
+      
+      <nav class="hidden xl:flex items-center gap-2">
+        <a href="#menu-interactivo" class="mega-nav-link text-[#8D5B4C]">🍰 Menú Destacado</a>
+        <a href="#proceso-cafe" class="mega-nav-link">☕ Café</a>
+        <a href="#galeria-cafe" class="mega-nav-link">📸 Galería</a>
+        <a href="#zona-juegos" class="mega-nav-link">🟡 Pac-Man</a>
+        <a href="#ubicacion-mapa" class="mega-nav-link">📍 Ubicación</a>
+        <a href="#perfumes-section" class="mega-nav-link">✨ Perfumes</a>
+        <a href="#comentarios-section" class="mega-nav-link">💬 Comentarios</a>
+      </nav>
+
+      <!-- CHATBOT EN LA ESQUINA SUPERIOR DERECHA -->
+      <div class="relative">
+        <button id="chat-toggle" class="w-12 h-12 rounded-full flex items-center justify-center shadow-2xl btn-vibrant-primary text-lg border-3 border-[#2C1E1A] animate-pulse">
+          🤖💬
+        </button>
+        <div id="chat-window" class="hidden absolute top-16 right-0 w-80 sm:w-96 bg-white p-4 shadow-2xl flex flex-col h-[400px] rounded-[25px] border-4 border-[#2C1E1A] z-50" style="box-shadow: 8px 8px 0px #2C1E1A;">
+          <div class="flex justify-between items-center border-b-3 border-[#2C1E1A] pb-3 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-base">☕🤖</span>
+              <div>
+                <p class="font-extrabold text-xs text-[#8D5B4C]">Asistente AromaBot</p>
+                <p class="text-[9px] font-bold text-[#A47551]">¡Modo café pastel activo!</p>
+              </div>
+            </div>
+            <button id="chat-close" class="text-xs font-extrabold text-white bg-[#8D5B4C] border-2 border-[#2C1E1A] px-2 py-0.5 rounded-lg">✕</button>
+          </div>
+          <div id="chat-messages" class="flex-1 overflow-y-auto space-y-3 pr-2 text-xs font-medium">
+            <div class="bg-[#FAF4EF] p-3 border-2 border-[#2C1E1A] space-y-1 rounded-xl shadow-sm">
+              <p class="font-bold text-[#8D5B4C]">¡Hola colega!</p>
+              <p class="text-[#2C1E1A]">Pregúntame sobre horario, dirección, precios o perfumes con notas de café.</p>
+            </div>
+          </div>
+          <div class="mt-3 flex gap-2">
+            <input type="text" id="chat-input" placeholder="Ej. ¿Qué perfumes hay?" class="flex-1 bg-[#FAF4EF] border-2 border-[#2C1E1A] px-3 py-2.5 text-xs focus:outline-none focus:border-[#C89F81] rounded-xl font-bold text-[#2C1E1A]" />
+            <button id="chat-send" class="btn-vibrant-primary px-4 py-2.5 text-xs">Enviar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- REPRODUCTOR DE MÚSICA SOFT LOFI -->
+  <div class="fixed bottom-6 left-6 z-50">
+    <div class="bg-white p-3 flex items-center gap-3 shadow-2xl border-3 border-[#2C1E1A] rounded-2xl floating-card" style="box-shadow: 5px 5px 0px #2C1E1A;">
+      <button id="audio-toggle" class="w-10 h-10 btn-vibrant-primary flex items-center justify-center font-bold text-base">
+        ▶
+      </button>
+      <div class="text-left pr-2">
+        <p class="font-extrabold text-xs text-[#8D5B4C]">Soft Lofi Beats</p>
+        <p class="text-[10px] font-bold text-[#A47551]" id="audio-status">Relajante & Café</p>
+      </div>
+      <audio id="bg-audio" preload="none" loop>
+        <source src="https://stream.zeno.fm/f3wvbbqmdg8uv" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <div class="relative z-10 pt-32 max-w-7xl mx-auto px-4">
+
+    <!-- SECCIÓN BANNER SUPERIOR NUEVO -->
+    <section class="w-full rounded-[30px] border-4 border-[#2C1E1A] overflow-hidden shadow-2xl mb-12 relative h-72 sm:h-96 flex items-center justify-center text-center p-6" data-aos="zoom-in" style="box-shadow: 12px 12px 0px #8D5B4C;">
+      <div class="absolute inset-0 bg-cover bg-center filter brightness-90 contrast-105" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80');"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#2C1E1A]/80 via-[#2C1E1A]/40 to-transparent"></div>
+      
+      <div class="relative z-10 max-w-3xl mx-auto space-y-4">
+        <span class="bg-[#C89F81] text-white text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full border-2 border-[#2C1E1A] shadow-md">
+          YA ABRIMOS
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-lg">
+          Disfruta el cafe real <span class="text-[#C89F81]">Café Artesanal</span>
+        </h2>
+        <p class="text-xs sm:text-sm font-bold text-[#EFE3DA] max-w-xl mx-auto drop-shadow">
+          Un espacio único diseñado con notas cálidas, repostería recién horneada y el mejor ambiente de Tlalnepantla.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN HERO -->
+    <section class="bubble-section relative overflow-hidden" data-aos="fade-up">
+      <div class="absolute inset-0 bg-cover bg-center z-0 filter brightness-95 contrast-110 opacity-15" style="background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80');"></div>
+      
+      <div class="relative z-10 grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <span class="inline-block bg-[#EFE3DA] border-2 border-[#2C1E1A] font-extrabold text-xs uppercase tracking-widest px-5 py-2 rounded-xl text-[#8D5B4C] shadow-sm" style="box-shadow: 3px 3px 0px #2C1E1A;">
+            AROMA DEL DÍA — CAFÉTERIA
+          </span>
+          <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-[#2C1E1A] leading-tight">
+            <span class="aroma-fixed-animation">AROMA DEL DÍA</span> <span class="text-[#8D5B4C]">¡Café Pastel!</span>
+          </h1>
+          <p class="text-sm sm:text-base max-w-xl mx-auto lg:mx-0 font-bold leading-relaxed text-[#5C4033]">
+            Bienvenido a nuestra página colega, infórmate, pide un café, juega un rato o descubre fragancias exclusivas con notas de café en un entorno con estilo único en tonos café pastel.
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+            <a href="#menu-interactivo" class="py-3.5 px-8 btn-vibrant-primary text-xs uppercase tracking-wider">
+              🍰 Ir directo al Menú
+            </a>
+            <a href="#galeria-cafe" class="py-3.5 px-8 btn-vibrant-outline text-xs uppercase tracking-wider">
+              📸 Ver Galería
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative hidden lg:block">
+          <div class="polaroid transform rotate-2 max-w-sm mx-auto floating-card">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" class="w-full h-64 object-cover rounded-lg border-2 border-[#2C1E1A]" alt="Café artesanal y acogedor" />
+            <p class="text-center font-extrabold text-xs mt-3 tracking-wide text-[#8D5B4C]">¡El mejor café artesanal y ambiente!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENÚ COLORIDO INTERACTIVO -->
+    <section id="menu-interactivo" class="bubble-section border-4 border-[#8D5B4C]" data-aos="fade-up" style="box-shadow: 12px 12px 0px #8D5B4C;">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="inline-block bg-[#C89F81] text-white text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full border-2 border-[#2C1E1A] mb-2 animate-bounce" style="box-shadow: 3px 3px 0px #2C1E1A;">☕☕☕</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-2 text-[#2C1E1A]">Carta Dinámica <span class="aroma-fixed-animation">Aroma del Día</span></h2>
+        <p class="text-xs sm:text-sm font-bold text-[#5C4033] mt-2">Selecciona cualquier categoría de abajo para activar animaciones tridimensionales únicas e instantáneas.</p>
+      </div>
+
+      <!-- BOTONES DE CATEGORÍAS -->
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10">
+        <button onclick="cambiarMenu('desayuno')" id="btn-desayuno" class="tab-btn active-tab px-6 py-3.5 font-extrabold text-xs rounded-2xl transition-all shadow-md transform">🍳 Desayuno</button>
+        <button onclick="cambiarMenu('almuerzo')" id="btn-almuerzo" class="tab-btn px-6 py-3.5 font-extrabold text-xs bg-white text-[#2C1E1A] border-3 border-[#2C1E1A] rounded-2xl transition-all shadow-md transform hover:scale-105" style="box-shadow: 4px 4px 0px #2C1E1A;">🥗 Almuerzo</button>
+        <button onclick="cambiarMenu('alimentos')" id="btn-alimentos" class="tab-btn px-6 py-3.5 font-extrabold text-xs bg-white text-[#2C1E1A] border-3 border-[#2C1E1A] rounded-2xl transition-all shadow-md transform hover:scale-105" style="box-shadow: 4px 4px 0px #2C1E1A;">🍽️ Alimentos</button>
+        <button onclick="cambiarMenu('reposteria')" id="btn-reposteria" class="tab-btn px-6 py-3.5 font-extrabold text-xs bg-white text-[#2C1E1A] border-3 border-[#2C1E1A] rounded-2xl transition-all shadow-md transform hover:scale-105" style="box-shadow: 4px 4px 0px #2C1E1A;">🍰 Repostería</button>
+        <button onclick="cambiarMenu('calientes')" id="btn-calientes" class="tab-btn px-6 py-3.5 font-extrabold text-xs bg-white text-[#2C1E1A] border-3 border-[#2C1E1A] rounded-2xl transition-all shadow-md transform hover:scale-105" style="box-shadow: 4px 4px 0px #2C1E1A;">☕ Calientes</button>
+        <button onclick="cambiarMenu('frias')" id="btn-frias" class="tab-btn px-6 py-3.5 font-extrabold text-xs bg-white text-[#2C1E1A] border-3 border-[#2C1E1A] rounded-2xl transition-all shadow-md transform hover:scale-105" style="box-shadow: 4px 4px 0px #2C1E1A;">🧊 Frías</button>
+      </div>
+
+      <div class="bg-gradient-to-br from-white to-[#FAF4EF] p-6 md:p-10 border-4 border-[#2C1E1A] rounded-[25px] shadow-2xl min-h-[300px]" style="box-shadow: 8px 8px 0px #2C1E1A;">
+        
+        <!-- 🍳 DESAYUNO -->
+        <div id="content-desayuno" class="menu-slider-content active space-y-6">
+          <div class="col-span-full flex justify-between items-center border-b-3 border-[#2C1E1A] pb-4">
+            <h3 class="font-extrabold text-xl sm:text-2xl text-[#8D5B4C]">🍳 Desayuno Matutino</h3>
+            <span class="text-xs text-white bg-[#8D5B4C] px-3 py-1 rounded-full border-2 border-[#2C1E1A] font-extrabold uppercase">Energía & Sabor</span>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 text-xs w-full">
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Huevos al gusto">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Huevos al gusto</h4><p class="text-[#5C4033] font-bold mt-0.5">Preparados al momento con guarnición fresca</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$75</span></div>
+            </div>
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1610970881699-44a5587cabec?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Chilaquiles">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Chilaquiles Tradicionales</h4><p class="text-[#5C4033] font-bold mt-0.5">Salsa verde o roja, crema y queso fresco</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$80</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🥗 ALMUERZO -->
+        <div id="content-almuerzo" class="menu-slider-content space-y-6">
+          <div class="col-span-full flex justify-between items-center border-b-3 border-[#2C1E1A] pb-4">
+            <h3 class="font-extrabold text-xl sm:text-2xl text-[#8D5B4C]">🥗 Almuerzo Ligero</h3>
+            <span class="text-xs text-white bg-[#8D5B4C] px-3 py-1 rounded-full border-2 border-[#2C1E1A] font-extrabold uppercase">Frescura Diaria</span>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 text-xs w-full">
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Sándwich">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Sándwich Artesanal</h4><p class="text-[#5C4033] font-bold mt-0.5">Pan de masa madre e ingredientes frescos</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$115</span></div>
+            </div>
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Ensalada">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Ensalada de la Casa</h4><p class="text-[#5C4033] font-bold mt-0.5">Mix verde, nueces, aderezo cítrico</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$110</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🍽️ ALIMENTOS -->
+        <div id="content-alimentos" class="menu-slider-content space-y-6">
+          <div class="col-span-full flex justify-between items-center border-b-3 border-[#2C1E1A] pb-4">
+            <h3 class="font-extrabold text-xl sm:text-2xl text-[#8D5B4C]">🍽️ Alimentos Fuertes</h3>
+            <span class="text-xs text-white bg-[#8D5B4C] px-3 py-1 rounded-full border-2 border-[#2C1E1A] font-extrabold uppercase">Especialidades</span>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 text-xs w-full">
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Hamburguesa">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Hamburguesa Gourmet AM</h4><p class="text-[#5C4033] font-bold mt-0.5">Carne jugosa, queso cheddar y papas gajo</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$125</span></div>
+            </div>
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Panini Gourmet">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Panini de Jamón Serrano</h4><p class="text-[#5C4033] font-bold mt-0.5">Queso provolone y jitomate deshidratado</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$130</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🍰 REPOSTERÍA -->
+        <div id="content-reposteria" class="menu-slider-content space-y-6">
+          <div class="col-span-full flex justify-between items-center border-b-3 border-[#2C1E1A] pb-4">
+            <h3 class="font-extrabold text-xl sm:text-2xl text-[#8D5B4C]">🍰 Repostería Fina</h3>
+            <span class="text-xs text-white bg-[#8D5B4C] px-3 py-1 rounded-full border-2 border-[#2C1E1A] font-extrabold uppercase">Horneado Diario</span>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 text-xs w-full">
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Pastel">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Rebanada de Pastel Húmedo</h4><p class="text-[#5C4033] font-bold mt-0.5">Chocolate intenso o zanahoria artesanal</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$100</span></div>
+            </div>
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Croissant">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Croissant de Mantequilla</h4><p class="text-[#5C4033] font-bold mt-0.5">Recién horneado, hojaldrado perfecto</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$55</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ☕ CALIENTES -->
+        <div id="content-calientes" class="menu-slider-content space-y-6">
+          <div class="col-span-full flex justify-between items-center border-b-3 border-[#2C1E1A] pb-4">
+            <h3 class="font-extrabold text-xl sm:text-2xl text-[#8D5B4C]">☕ Bebidas Calientes</h3>
+            <span class="text-xs text-white bg-[#8D5B4C] px-3 py-1 rounded-full border-2 border-[#2C1E1A] font-extrabold uppercase">Barra de Café</span>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 text-xs w-full">
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Expresso">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Café Expresso</h4><p class="text-[#5C4033] font-bold mt-0.5">Extracción perfecta de grano arábigo</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$68</span></div>
+            </div>
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Cappuccino">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Cappuccino Clásico</h4><p class="text-[#5C4033] font-bold mt-0.5">Espuma sedosa de leche y canela</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$75</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🧊 FRÍAS -->
+        <div id="content-frias" class="menu-slider-content space-y-6">
+          <div class="col-span-full flex justify-between items-center border-b-3 border-[#2C1E1A] pb-4">
+            <h3 class="font-extrabold text-xl sm:text-2xl text-[#8D5B4C]">🧊 Bebidas Frías</h3>
+            <span class="text-xs text-white bg-[#8D5B4C] px-3 py-1 rounded-full border-2 border-[#2C1E1A] font-extrabold uppercase">Refrescantes</span>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 text-xs w-full">
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Frappe">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Frappé de Moka</h4><p class="text-[#5C4033] font-bold mt-0.5">Café, chocolate y crema batida</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$100</span></div>
+            </div>
+            <div class="premium-card p-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=300&q=80" class="w-24 h-24 object-cover rounded-2xl border-2 border-[#2C1E1A] shadow-sm flex-shrink-0" alt="Cold Brew">
+              <div class="flex-1"><h4 class="font-extrabold text-sm sm:text-base text-[#2C1E1A]">Cold Brew Nitro</h4><p class="text-[#5C4033] font-bold mt-0.5">Infusión en frío durante 18 horas</p><span class="font-extrabold text-sm sm:text-base text-[#8D5B4C] mt-1 block">$85</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ¿CÓMO SE HACE EL CAFÉ? -->
+    <section id="proceso-cafe" class="bubble-section" data-aos="fade-up">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-[#8D5B4C]">De la Semilla a la Taza</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-2 text-[#2C1E1A]">☕ ¿Cómo se hace el Café Artesanal?</h2>
+        <p class="text-xs sm:text-sm font-bold text-[#5C4033] mt-1">Conoce el proceso detallado detrás de cada sorbo en Aroma del Día.</p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="premium-card p-6 space-y-4">
+          <div class="polaroid transform -rotate-2">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" class="w-full h-36 object-cover rounded-lg border-2 border-[#2C1E1A]" alt="Cosecha de café">
+            <p class="text-center font-extrabold text-xs mt-2 text-[#8D5B4C]">1. Cosecha Selecta</p>
+          </div>
+          <h3 class="font-extrabold text-base text-[#2C1E1A]">Recolección a Mano</h3>
+          <p class="text-xs font-bold text-[#5C4033] leading-relaxed">Se seleccionan únicamente los frutos óptimos y maduros de la planta de café arábigo.</p>
+        </div>
+
+        <div class="premium-card p-6 space-y-4">
+          <div class="polaroid transform rotate-2">
+            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=500&q=80" class="w-full h-36 object-cover rounded-lg border-2 border-[#2C1E1A]" alt="Proceso y secado">
+            <p class="text-center font-extrabold text-xs mt-2 text-[#8D5B4C]">2. Beneficiado y Secado</p>
+          </div>
+          <h3 class="font-extrabold text-base text-[#2C1E1A]">Lavado y Sol</h3>
+          <p class="text-xs font-bold text-[#5C4033] leading-relaxed">Se elimina la pulpa del grano y se seca cuidadosamente al sol hasta alcanzar la humedad ideal.</p>
+        </div>
+
+        <div class="premium-card p-6 space-y-4">
+          <div class="polaroid transform rotate-2">
+            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=500&q=80" class="w-full h-36 object-cover rounded-lg border-2 border-[#2C1E1A]" alt="Tostado de café">
+            <p class="text-center font-extrabold text-xs mt-2 text-[#8D5B4C]">3. Tostado Artesanal</p>
+          </div>
+          <h3 class="font-extrabold text-base text-[#2C1E1A]">Curva de Calor</h3>
+          <p class="text-xs font-bold text-[#5C4033] leading-relaxed">El grano crudo se somete a temperaturas precisas para desarrollar sus aromas y notas corporales.</p>
+        </div>
+
+        <div class="premium-card p-6 space-y-4">
+          <div class="polaroid transform rotate-2">
+            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&q=80" class="w-full h-36 object-cover rounded-lg border-2 border-[#2C1E1A]" alt="Preparación final">
+            <p class="text-center font-extrabold text-xs mt-2 text-[#8D5B4C]">4. Extracción en Barra</p>
+          </div>
+          <h3 class="font-extrabold text-base text-[#2C1E1A]">El Sorbo Perfecto</h3>
+          <p class="text-xs font-bold text-[#5C4033] leading-relaxed">Nuestros baristas muelen al momento y extraen el café con los parámetros exactos de presión.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA EXTRA DE FOTOS DE CAFÉ -->
+    <section id="galeria-cafe" class="bubble-section" data-aos="fade-up">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-[#8D5B4C]">Momentos Aroma</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-2 text-[#2C1E1A]">📸 Galería Cafetera</h2>
+        <p class="text-xs sm:text-sm font-bold text-[#5C4033] mt-1">Un vistazo visual a nuestra pasión por el café de especialidad.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="polaroid transform -rotate-1">
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=80" class="w-full h-52 object-cover rounded-lg border-2 border-[#2C1E1A]" alt="Granos tostados">
+          <p class="text-center font-extrabold text-xs mt-3 text-[#8D5B4C]">Granos recién tostados</p>
+        </div>
+        <div class="polaroid transform rotate-1">
+          <img src="https://images.unsplash.com/photo-1507133754641-47de0377033d?auto=format&fit=crop&w=600&q=80" class="w-full h-52 object-cover rounded-lg border-2 border-[#2C1E1A]" alt="Arte latte">
+          <p class="text-center font-extrabold text-xs mt-3 text-[#8D5B4C]">Arte Latte profesional</p>
+        </div>
+        <div class="polaroid transform -rotate-2">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=600&q=80" class="w-full h-52 object-cover rounded-lg border-2 border-[#2C1E1A]" alt="Cafetera espresso">
+          <p class="text-center font-extrabold text-xs mt-3 text-[#8D5B4C]">Extracción en barra</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONA JUEGOS Y PAC-MAN -->
+    <section id="zona-juegos" class="bubble-section" data-aos="fade-up">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-[#8D5B4C]">Reto & Diversión</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-2 text-[#2C1E1A]">🟡 El Juego de Pac-Man</h2>
+        <p class="text-xs sm:text-sm font-bold text-[#5C4033] mt-1">Usa las flechas del teclado para mover a Pac-Man, come puntos y evita fantasmas. ¡Cada tecla suena como nota de piano en vivo!</p>
+      </div>
+
+      <div class="flex flex-col items-center justify-center space-y-6">
+        <div class="bg-white p-4 rounded-3xl border-3 border-[#2C1E1A] shadow-xl flex flex-col items-center floating-card" style="box-shadow: 6px 6px 0px #2C1E1A;">
+          <div class="flex justify-between w-full px-4 mb-2 text-xs font-extrabold text-[#2C1E1A]">
+            <span>PUNTUACIÓN: <span id="pacman-score" class="text-[#8D5B4C] text-sm">0</span></span>
+            <span>VIDAS: <span id="pacman-lives" class="text-[#8D5B4C] text-sm">❤️❤️❤️</span></span>
+          </div>
+          <canvas id="pacman-canvas" width="380" height="380"></canvas>
+          <div class="flex gap-4 mt-4">
+            <button id="pacman-start" class="btn-vibrant-primary px-6 py-2.5 text-xs uppercase">Iniciar / Reiniciar</button>
+          </div>
+          <p class="text-[11px] font-bold text-[#5C4033] mt-3">Usa las flechas direccionales (↑ ↓ ← →) para moverte.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- UBICACIÓN GOOGLE MAPS & PERFUMES -->
+    <section class="bubble-section" data-aos="fade-up">
+      <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- MAPA GOOGLE MAPS EMBED -->
+        <div id="ubicacion-mapa" class="lg:col-span-6 premium-card p-4 sm:p-6 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-widest text-[#8D5B4C]">📍 Ubicación Exacta</span>
+            <h3 class="text-xl font-extrabold mt-1 text-[#2C1E1A]">Av. Sor Juana Inés de La Cruz #280</h3>
+            <p class="text-xs font-bold text-[#5C4033] mt-1 mb-4">Centro Industrial Tlalnepantla, 54033 Tlalnepantla, Méx.</p>
+          </div>
+          <div class="w-full h-80 rounded-2xl overflow-hidden border-3 border-[#2C1E1A] shadow-md">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.904838662991!2d-99.20831372347717!3d19.53832213702119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d21f6424e64f7b%3A0x628e811f5925a666!2sAv.+Sor+Juana+In%C3%A9s+de+La+Cruz+%23280%2C+Centro+Industrial+Tlalnepantla%2C+54033+Tlalnepantla+de+Baz%2C+Méx.!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx" 
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- SECCIÓN DE PERFUMES -->
+        <div id="perfumes-section" class="lg:col-span-6 premium-card p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b-2 border-[#2C1E1A] pb-4 mb-4">
+              <span class="bg-[#C89F81] text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-full border-2 border-[#2C1E1A]">✨ Notas de Café</span>
+              <span class="text-xs text-[#8D5B4C] font-bold">Guía Aromática</span>
+            </div>
+            
+            <div class="space-y-4 max-h-[350px] overflow-y-auto pr-2">
+              <div class="bg-[#FAF4EF] p-3 rounded-2xl border-2 border-[#2C1E1A] flex gap-4 items-center transform hover:scale-[1.02] transition-all shadow-sm">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=200&q=80" class="w-16 h-16 object-cover rounded-xl border-2 border-[#2C1E1A] flex-shrink-0" alt="Black Opium">
+                <div>
+                  <h4 class="font-extrabold text-sm text-[#8D5B4C]">Black Opium (Yves Saint Laurent)</h4>
+                  <p class="text-xs text-[#2C1E1A] font-bold mt-0.5">Café negro, vainilla dulce y flores blancas. Adictivo y enérgico.</p>
+                </div>
+              </div>
+
+              <div class="bg-[#FAF4EF] p-3 rounded-2xl border-2 border-[#2C1E1A] flex gap-4 items-center transform hover:scale-[1.02] transition-all shadow-sm">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=200&q=80" class="w-16 h-16 object-cover rounded-xl border-2 border-[#2C1E1A] flex-shrink-0" alt="Coffee Break">
+                <div>
+                  <h4 class="font-extrabold text-sm text-[#8D5B4C]">REPLICA Coffee Break (Maison Margiela)</h4>
+                  <p class="text-xs text-[#2C1E1A] font-bold mt-0.5">Espuma de leche, café tostado y lavanda.</p>
+                </div>
+              </div>
+
+              <div class="bg-[#FAF4EF] p-3 rounded-2xl border-2 border-[#2C1E1A] flex gap-4 items-center transform hover:scale-[1.02] transition-all shadow-sm">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=200&q=80" class="w-16 h-16 object-cover rounded-xl border-2 border-[#2C1E1A] flex-shrink-0" alt="Intense Cafe">
+                <div>
+                  <h4 class="font-extrabold text-sm text-[#8D5B4C]">Intense Café (Montale)</h4>
+                  <p class="text-xs text-[#2C1E1A] font-bold mt-0.5">Café recién hecho, rosa fresca y almizcle blanco.</p>
+                </div>
+              </div>
+
+              <div class="bg-[#FAF4EF] p-3 rounded-2xl border-2 border-[#2C1E1A] flex gap-4 items-center transform hover:scale-[1.02] transition-all shadow-sm">
+                <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=200&q=80" class="w-16 h-16 object-cover rounded-xl border-2 border-[#2C1E1A] flex-shrink-0" alt="The Most Wanted">
+                <div>
+                  <h4 class="font-extrabold text-sm text-[#8D5B4C]">The Most Wanted (Azzaro)</h4>
+                  <p class="text-xs text-[#2C1E1A] font-bold mt-0.5">Cóctel de café con especias cálidas y maderas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-[10px] text-[#5C4033] mt-4 text-center font-bold">Catálogo puramente informativo de notas aromáticas.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE COMENTARIOS Y SUGERENCIAS -->
+    <section id="comentarios-section" class="bubble-section" data-aos="fade-up">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-[#8D5B4C]">Tu Opinión Importa</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-2 text-[#2C1E1A]">💬 Comentarios y Sugerencias</h2>
+        <p class="text-xs sm:text-sm font-bold text-[#5C4033] mt-1">Déjanos tu mensaje en <span class="aroma-fixed-animation">Aroma del Día</span>.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8">
+        <!-- Formulario -->
+        <div class="lg:col-span-5 premium-card p-6 sm:p-8 space-y-4">
+          <h3 class="font-extrabold text-lg text-[#8D5B4C]">Escribe tu comentario</h3>
+          <form id="comment-form" class="space-y-4 text-xs font-bold text-[#2C1E1A]">
+            <div>
+              <label class="block mb-1">Tu Nombre o Alias:</label>
+              <input type="text" id="comment-name" required placeholder="Ej. Carlos Mendoza" class="w-full bg-[#FAF4EF] border-2 border-[#2C1E1A] px-3 py-2.5 rounded-xl font-bold focus:outline-none focus:border-[#C89F81]" />
+            </div>
+            <div>
+              <label class="block mb-1">Calificación:</label>
+              <select id="comment-rating" class="w-full bg-[#FAF4EF] border-2 border-[#2C1E1A] px-3 py-2.5 rounded-xl font-bold focus:outline-none focus:border-[#C89F81]">
+                <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ Excelente</option>
+                <option value="⭐⭐⭐⭐">⭐⭐⭐⭐ Muy Bueno</option>
+                <option value="⭐⭐⭐">⭐⭐⭐ Bueno</option>
+                <option value="⭐⭐">⭐⭐ Regular</option>
+                <option value="⭐">⭐ Malo</option>
+              </select>
+            </div>
+            <div>
+              <label class="block mb-1">Comentario o Sugerencia:</label>
+              <textarea id="comment-text" rows="4" required placeholder="Me encantó el estilo café pastel..." class="w-full bg-[#FAF4EF] border-2 border-[#2C1E1A] px-3 py-2.5 rounded-xl font-bold focus:outline-none focus:border-[#C89F81]"></textarea>
+            </div>
+            <button type="submit" class="w-full py-3 btn-vibrant-primary uppercase tracking-wider text-xs">Publicar Comentario</button>
+          </form>
+        </div>
+
+        <!-- Muro de Comentarios -->
+        <div class="lg:col-span-7 premium-card p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <h3 class="font-extrabold text-lg text-[#8D5B4C] mb-4">Muro de Opiniones Recientes</h3>
+            <div id="comments-list" class="space-y-4 max-h-[350px] overflow-y-auto pr-2">
+              <div class="bg-[#FAF4EF] p-4 border-2 border-[#2C1E1A] rounded-xl space-y-1 shadow-sm">
+                <div class="flex justify-between items-center text-xs">
+                  <span class="font-extrabold text-[#8D5B4C]">Sofía R.</span>
+                  <span class="text-[10px] text-[#8D5B4C]">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="text-xs font-bold text-[#2C1E1A]">¡La paleta en tonos café pastel hace que la página se vea súper acogedora y elegante!</p>
+              </div>
+              <div class="bg-[#FAF4EF] p-4 border-2 border-[#2C1E1A] rounded-xl space-y-1 shadow-sm">
+                <div class="flex justify-between items-center text-xs">
+                  <span class="font-extrabold text-[#8D5B4C]">Mateo G.</span>
+                  <span class="text-[10px] text-[#8D5B4C]">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="text-xs font-bold text-[#2C1E1A]">Muy buena ubicación en Tlalnepantla y excelente ambiente aromático.</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-[10px] text-[#5C4033] mt-4 text-center font-bold">Tus comentarios se guardan al instante (en ningún lugar)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bubble-section py-8 text-center my-10">
+      <div class="max-w-4xl mx-auto px-6 space-y-2">
+        <p class="font-extrabold text-xs text-[#2C1E1A] tracking-widest"><span class="aroma-fixed-animation">AROMA DEL DÍA</span> — PÁGINA CREADA CON ESTRÉS Y CAFEÍNA</p>
+        <p class="text-xs font-bold text-[#2C1E1A]">Esponja Gar fui fui (soul).</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- AOS Animation Library JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      once: true,
+      offset: 40
+    });
+
+    let audioCtx = null;
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const enterBtn = document.getElementById('enter-btn');
+    
+    enterBtn.addEventListener('click', () => {
+      welcomeScreen.classList.add('fade-out');
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      } else if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    });
+
+    function playPianoNote(frequency = 440) {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+
+      gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
+
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 1.2);
+    }
+
+    const pianoNotes = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25];
+    let noteIndex = 0;
+
+    document.addEventListener('keydown', (e) => {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+      const freq = pianoNotes[noteIndex % pianoNotes.length];
+      playPianoNote(freq);
+      noteIndex++;
+    });
+
+    const audioToggle = document.getElementById('audio-toggle');
+    const bgAudio = document.getElementById('bg-audio');
+    const audioStatus = document.getElementById('audio-status');
+    let isPlaying = false;
+
+    audioToggle.addEventListener('click', () => {
+      if (!isPlaying) {
+        bgAudio.play().then(() => {
+          isPlaying = true;
+          audioToggle.textContent = '⏸';
+          audioStatus.textContent = 'Sonando Lofi Beats';
+        }).catch(err => {
+          console.log("Audio play blocked", err);
+          audioStatus.textContent = 'Error al reproducir';
+        });
+      } else {
+        bgAudio.pause();
+        isPlaying = false;
+        audioToggle.textContent = '▶';
+        audioStatus.textContent = 'Pausado';
+      }
+    });
+
+    function cambiarMenu(categoria) {
+      const tabs = ['desayuno', 'almuerzo', 'alimentos', 'reposteria', 'calientes', 'frias'];
+      tabs.forEach(tab => {
+        const content = document.getElementById('content-' + tab);
+        const btn = document.getElementById('btn-' + tab);
+        if (tab === categoria) {
+          content.classList.add('active');
+          btn.classList.add('active-tab');
+          btn.style.boxShadow = "5px 5px 0px #2C1E1A";
+        } else {
+          content.classList.remove('active');
+          btn.classList.remove('active-tab');
+          btn.className = "tab-btn px-6 py-3.5 font-extrabold text-xs bg-white text-[#2C1E1A] border-3 border-[#2C1E1A] rounded-2xl transition-all shadow-md transform hover:scale-105";
+          btn.style.boxShadow = "4px 4px 0px #2C1E1A";
+        }
+      });
+    }
+
+    const canvas = document.getElementById('pacman-canvas');
+    const ctx = canvas.getContext('2d');
+    const scoreElement = document.getElementById('pacman-score');
+    const livesElement = document.getElementById('pacman-lives');
+    const startPacmanBtn = document.getElementById('pacman-start');
+
+    const tileSize = 20;
+    const mapGrid = [
+      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,1],
+      [1,2,1,1,2,1,1,1,2,1,2,1,1,1,2,1,1,2,1],
+      [1,2,1,1,2,1,1,1,2,1,2,1,1,1,2,1,1,2,1],
+      [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
+      [1,2,1,1,2,1,2,1,1,1,1,1,2,1,2,1,1,2,1],
+      [1,2,2,2,2,1,2,2,2,1,2,2,2,1,2,2,2,2,1],
+      [1,1,1,1,2,1,1,1,0,1,0,1,1,1,2,1,1,1,1],
+      [0,0,0,1,2,1,0,0,0,0,0,0,0,1,2,1,0,0,0],
+      [1,1,1,1,2,1,0,1,1,0,1,1,0,1,2,1,1,1,1],
+      [0,0,0,0,2,0,0,1,0,0,0,1,0,0,2,0,0,0,0],
+      [1,1,1,1,2,1,0,1,1,1,1,1,0,1,2,1,1,1,1],
+      [0,0,0,1,2,1,0,0,0,0,0,0,0,1,2,1,0,0,0],
+      [1,1,1,1,2,1,2,1,1,1,1,1,2,1,2,1,1,1,1],
+      [1,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,1],
+      [1,2,1,1,2,1,1,1,2,1,2,1,1,1,2,1,1,2,1],
+      [1,2,2,1,2,2,2,2,2,0,2,2,2,2,2,1,2,2,1],
+      [1,1,2,1,2,1,2,1,1,1,1,1,2,1,2,1,2,1,1],
+      [1,2,2,2,2,1,2,2,2,1,2,2,2,1,2,2,2,2,1],
+      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    ];
+
+    let currentMap = [];
+    let pacman = { x: 9, y: 16, dx: 0, dy: 0 };
+    let ghosts = [
+      { x: 9, y: 9, color: '#C89F81', dx: 0, dy: -1 },
+      { x: 9, y: 10, color: '#EFE3DA', dx: 0, dy: 1 }
+    ];
+    let score = 0;
+    let lives = 3;
+    let gameInterval = null;
+    let gameRunning = false;
+
+    function resetGame() {
+      currentMap = mapGrid.map(row => [...row]);
+      pacman = { x: 9, y: 16, dx: 0, dy: 0 };
+      ghosts = [
+        { x: 9, y: 9, color: '#C89F81', dx: 0, dy: -1 },
+        { x: 9, y: 10, color: '#EFE3DA', dx: 0, dy: 1 }
+      ];
+      score = 0;
+      lives = 3;
+      scoreElement.textContent = score;
+      livesElement.textContent = '❤️❤️❤️';
+      if (gameInterval) clearInterval(gameInterval);
+      gameInterval = setInterval(gameLoop, 200);
+      gameRunning = true;
+    }
+
+    startPacmanBtn.addEventListener('click', resetGame);
+
+    function gameLoop() {
+      if (!gameRunning) return;
+
+      let nextX = pacman.x + pacman.dx;
+      let nextY = pacman.y + pacman.dy;
+      if (nextX >= 0 && nextX < 19 && currentMap[nextY] && currentMap[nextY][nextX] !== 1) {
+        pacman.x = nextX;
+        pacman.y = nextY;
+      }
+
+      if (currentMap[pacman.y][pacman.x] === 2) {
+        currentMap[pacman.y][pacman.x] = 0;
+        score += 10;
+        scoreElement.textContent = score;
+        playPianoNote(523.25);
+      }
+
+      ghosts.forEach(ghost => {
+        const directions = [{dx:0, dy:-1}, {dx:0, dy:1}, {dx:-1, dy:0}, {dx:1, dy:0}];
+        const validDirs = directions.filter(d => {
+          let gx = ghost.x + d.dx;
+          let gy = ghost.y + d.dy;
+          return gx >= 0 && gx < 19 && gy >= 0 && gy < 20 && currentMap[gy][gx] !== 1;
+        });
+
+        if (validDirs.length > 0) {
+          let chosen = validDirs[Math.floor(Math.random() * validDirs.length)];
+          ghost.dx = chosen.dx;
+          ghost.dy = chosen.dy;
+        }
+        ghost.x += ghost.dx;
+        ghost.y += ghost.dy;
+
+        if (ghost.x === pacman.x && ghost.y === pacman.y) {
+          lives--;
+          livesElement.textContent = '❤️'.repeat(Math.max(0, lives));
+          playPianoNote(130.81);
+          if (lives <= 0) {
+            gameOver();
+          } else {
+            pacman.x = 9; pacman.y = 16; pacman.dx = 0; pacman.dy = 0;
+          }
+        }
+      });
+
+      drawGame();
+    }
+
+    function drawGame() {
+      ctx.fillStyle = '#1C120F';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      for (let r = 0; r < currentMap.length; r++) {
+        for (let c = 0; c < currentMap[r].length; c++) {
+          if (currentMap[r][c] === 1) {
+            ctx.fillStyle = '#5C4033';
+            ctx.fillRect(c * tileSize, r * tileSize, tileSize, tileSize);
+          } else if (currentMap[r][c] === 2) {
+            ctx.fillStyle = '#C89F81';
+            ctx.beginPath();
+            ctx.arc(c * tileSize + tileSize/2, r * tileSize + tileSize/2, 3, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+
+      ctx.fillStyle = '#EFE3DA';
+      ctx.beginPath();
+      ctx.arc(pacman.x * tileSize + tileSize/2, pacman.y * tileSize + tileSize/2, tileSize/2 - 2, 0, Math.PI * 2);
+      ctx.fill();
+
+      ghosts.forEach(ghost => {
+        ctx.fillStyle = ghost.color;
+        ctx.beginPath();
+        ctx.arc(ghost.x * tileSize + tileSize/2, ghost.y * tileSize + tileSize/2, tileSize/2 - 2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function gameOver() {
+      gameRunning = false;
+      clearInterval(gameInterval);
+      ctx.fillStyle = 'rgba(28,18,15,0.9)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#C89F81';
+      ctx.font = 'bold 18px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('¡GAME OVER!', canvas.width / 2, canvas.height / 2 - 10);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = '12px sans-serif';
+      ctx.fillText('Presiona "Iniciar / Reiniciar"', canvas.width / 2, canvas.height / 2 + 20);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (!gameRunning) return;
+      if (e.key === 'ArrowUp') { pacman.dx = 0; pacman.dy = -1; e.preventDefault(); }
+      if (e.key === 'ArrowDown') { pacman.dx = 0; pacman.dy = 1; e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { pacman.dx = -1; pacman.dy = 0; e.preventDefault(); }
+      if (e.key === 'ArrowRight') { pacman.dx = 1; pacman.dy = 0; e.preventDefault(); }
+    });
+
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatWindow = document.getElementById('chat-window');
+    const chatClose = document.getElementById('chat-close');
+    const chatSend = document.getElementById('chat-send');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+
+    chatToggle.addEventListener('click', () => {
+      chatWindow.classList.toggle('hidden');
+    });
+    chatClose.addEventListener('click', () => {
+      chatWindow.classList.add('hidden');
+    });
+
+    function enviarMensajeBot() {
+      const texto = chatInput.value.trim();
+      if (!texto) return;
+
+      const userMsg = document.createElement('div');
+      userMsg.className = 'bg-[#FAF4EF] p-2.5 border-2 border-[#2C1E1A] text-right ml-4 rounded-xl text-[#2C1E1A] font-bold shadow-sm';
+      userMsg.innerHTML = `<p class="text-[#8D5B4C]">Tú:</p><p class="font-medium">${escapeHtml(texto)}</p>`;
+      chatMessages.appendChild(userMsg);
+      chatInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      setTimeout(() => {
+        let respuesta = "¡Hola! Soy el asistente de Aroma del Día. Estamos en Av. Sor Juana Inés de La Cruz #280, Centro Industrial Tlalnepantla. Contamos con café artesanal, juegos y una guía de perfumes con notas de café.";
+        const t = texto.toLowerCase();
+
+        if (t.includes('direccion') || t.includes('ubicacion') || t.includes('donde') || t.includes('mapa')) {
+          respuesta = "📍 Nos ubicamos en Av. Sor Juana Inés de La Cruz #280, Centro Industrial Tlalnepantla, Méx.";
+        } else if (t.includes('horario') || t.includes('abren') || t.includes('horas')) {
+          respuesta = "⏰ Abrimos de lunes a domingo de 8:00 AM a 9:00 PM.";
+        } else if (t.includes('precio') || t.includes('menu') || t.includes('cuanto cuesta') || t.includes('carta')) {
+          respuesta = "🍰 En el menú tenemos expreso ($68), chilaquiles ($80), hamburguesas ($125) y postres ($100).";
+        } else if (t.includes('cafe') || t.includes('hace') || t.includes('prepara')) {
+          respuesta = "☕ El proceso incluye cosecha a mano, lavado, secado al sol, tostado artesanal y extracción perfecta.";
+        } else if (t.includes('juego') || t.includes('pacman') || t.includes('pac-man')) {
+          respuesta = "🟡 ¡Juega Pac-Man en la sección de juegos con las flechas del teclado y disfruta de las notas de piano!";
+        } else if (t.includes('perfume') || t.includes('fragancia') || t.includes('colonia')) {
+          respuesta = "✨ Tenemos fragancias célebres con notas de café como Black Opium, Coffee Break, Intense Café y The Most Wanted.";
+        }
+
+        const botMsg = document.createElement('div');
+        botMsg.className = 'bg-[#FAF4EF] p-2.5 border-2 border-[#2C1E1A] mr-4 rounded-xl font-bold shadow-sm';
+        botMsg.innerHTML = `<p class="text-[#8D5B4C]">Asistente AromaBot:</p><p class="text-[#2C1E1A] font-medium">${respuesta}</p>`;
+        chatMessages.appendChild(botMsg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 400);
+    }
+
+    chatSend.addEventListener('click', enviarMensajeBot);
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        enviarMensajeBot();
+      }
+    });
+
+    const commentForm = document.getElementById('comment-form');
+    const commentName = document.getElementById('comment-name');
+    const commentRating = document.getElementById('comment-rating');
+    const commentText = document.getElementById('comment-text');
+    const commentsList = document.getElementById('comments-list');
+
+    commentForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = commentName.value.trim();
+      const rating = commentRating.value;
+      const text = commentText.value.trim();
+
+      if (!name || !text) return;
+
+      const newCommentHTML = `
+        <div class="bg-[#FAF4EF] p-4 border-2 border-[#2C1E1A] rounded-xl space-y-1 shadow-sm">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-extrabold text-[#8D5B4C]">${escapeHtml(name)}</span>
+            <span class="text-[10px] text-[#8D5B4C]">${rating}</span>
+          </div>
+          <p class="text-xs font-bold text-[#2C1E1A]">${escapeHtml(text)}</p>
+        </div>
+      `;
+
+      commentsList.insertAdjacentHTML('afterbegin', newCommentHTML);
+      commentName.value = '';
+      commentText.value = '';
+      alert('¡Gracias por tu comentario! Ha sido publicado con éxito.');
+    });
+
+    function escapeHtml(string) {
+      return string.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    ctx.fillStyle = '#1C120F';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#C89F81';
+    ctx.font = 'bold 16px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('PAC-MAN AROMA', canvas.width / 2, canvas.height / 2 - 10);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '11px sans-serif';
+    ctx.fillText('Presiona "Iniciar / Reiniciar"', canvas.width / 2, canvas.height / 2 + 20);
+  </script>
+</body>
+</html>
